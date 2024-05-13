@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats vs Dogs Voting</title>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+</head>
+<body>
+
+<h1>Cats vs Dogs</h1>
+
+<button id="voteCats">Vote for Cats</button>
+<button id="voteDogs">Vote for Dogs</button>
+
+<div>
+    <p>Total Votes: <span id="totalVotes">0</span></p>
+    <p>Last Voter: <span id="lastVoter">None</span></p>
+    <p>Current Leader: <span id="currentLeader">None</span></p>
+</div>
+
+<script>
+    if (typeof window.ethereum !== 'undefined') {
+        console.log('MetaMask is installed!');
+    } else {
+        alert('Please install MetaMask to use this app.');
+    }
+
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+    async function requestAccount() {
+        await provider.send('eth_requestAccounts', []);
+    }
+
+    const contractAddress = "0x34296b59d6d3b0430F3661a6a6C0bA06cb70e910";
+    const contractABI = [
+        {
+            "inputs": [],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": true,
+                    "internalType": "enum CatVsDogs.VoteOption",
+                    "name": "newVote",
+                    "type": "uint8"
+                },
+                {
+                    "indexed": true,
+                    "internalType": "address",
+                    "name": "voter",
+                    "type": "address"
+                }
+            ],
+            "name": "VoteChanged",
+            "type": "event"
+        },
+        {
+            "inputs": [],
+            "name": "currentVote",
+            "outputs": [
+                {
+                    "internalType": "enum CatVsDogs.VoteOption",
+                    "name": "",
+                    "type": "uint8"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "lastVoter",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "totalVotes",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "voteCats",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "voteDogs",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }
+    ];
+
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(contractAddress, contractABI, signer);
+
+    async function updateUI() {
+        if (!window.ethereum) return;
+
+        console.log("updating UI");
+
+        const totalVotes = await contract.totalVotes();
+        const lastVoter = await contract.lastVoter();
+        const currentVote = await contract.currentVote();
+
+        document.getElementById('totalVotes').innerText = totalVotes;
+        document.getElementById('lastVoter').innerText = lastVoter;
+        document.getElementById('currentLeader').innerText = currentVote ?  "Dogs" : "Cats";
+    }
+
+    document.getElementById('voteCats').addEventListener('click', async () => {
+        const tx = await contract.voteCats();
+        console.log("vote cats tx:", tx);
+        await tx.wait();
+        await updateUI();
+    });
+
+    document.getElementById('voteDogs').addEventListener('click', async () => {
+        const tx = await contract.voteDogs();
+        console.log("vote dogs tx:", tx);
+        await tx.wait();
+        await updateUI();
+    });
+
+    requestAccount();
+    updateUI();
+</script>
+</body>
+</html>
