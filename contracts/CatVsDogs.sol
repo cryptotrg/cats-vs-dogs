@@ -2,32 +2,31 @@
 pragma solidity ^0.8.0;
 
 contract CatVsDogs {
-    enum VoteOption { Cats, Dogs }
+    enum VoteOption { Cat, Dog }
 
-    VoteOption public currentVote;
+    uint256 public catVotes;
+    uint256 public dogVotes;
     address public lastVoter;
-    uint256 public totalVotes;
 
-    event VoteChanged(VoteOption indexed newVote, address indexed voter);
+    event VotesChanged(uint256 indexed catVotes, uint256 indexed dogVotes, address indexed lastVoter);
 
     constructor() {
-        currentVote = VoteOption.Cats;
-        totalVotes = 1;
+        catVotes = 0;
+        dogVotes = 0;
     }
 
-    function voteCats() public {
-        vote(VoteOption.Cats);
+    function voteForCat() public {
+        catVotes++;
+        update();
     }
 
-    function voteDogs() public {
-        vote(VoteOption.Dogs);
+    function voteForDog() public {
+        dogVotes++;
+        update();
     }
 
-    function vote(VoteOption _vote) internal {
-        require(currentVote != _vote, "Current vote is already set to this option. Transaction reverted.");
-        currentVote = _vote;
+    function update() private {
         lastVoter = msg.sender;
-        totalVotes += 1;
-        emit VoteChanged(_vote, msg.sender);
+        emit VotesChanged(catVotes, dogVotes, lastVoter);
     }
 }
