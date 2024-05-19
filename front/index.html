@@ -17,7 +17,8 @@
 <div class="container" style="max-width: 30em">
     <div class="row my-2">
         <div class="col text-center">
-            Polygon network
+<!--            <a href="https://polygonscan.com/address/0x8F8FC628c371B96B8c934A7fb65eEC6a75295e34" target="_blank">Polygon network</a>-->
+            <a href="https://basescan.org/address/0x4bd4D3D980BeDF77cB91B23D26202c49E2b413B7" target="_blank">Base network</a>
             <h1>Cats vs Dogs</h1>
         </div>
     </div>
@@ -49,7 +50,7 @@
         </div>
     </div>
     <div class="row my-2 wallet-connected">
-        <button class="btn btn-primary w-100" id="connect">Connect Wallet</button>
+        <button class="btn btn-primary w-100" id="connect">Connect Metamask</button>
     </div>
 </div>
 
@@ -60,7 +61,10 @@
         alert('Please install MetaMask to use this app.');
     }
 
-    const contractAddress = "0x8F8FC628c371B96B8c934A7fb65eEC6a75295e34";
+    const baseAddress = '0x4bd4D3D980BeDF77cB91B23D26202c49E2b413B7';
+    const polygonAddress = '0x8F8FC628c371B96B8c934A7fb65eEC6a75295e34'
+
+    const contractAddress = baseAddress;
     const contractABI = [
         {
             "inputs": [],
@@ -169,8 +173,13 @@
         const contract = new ethers.Contract(contractAddress, contractABI, provider.getSigner());
         const network = await provider.getNetwork();
         console.log("network:", network);
-        if (network.chainId !== 137) {
-            alert("Please switch to the Polygon Mainnet");
+
+        // if (network.chainId !== 137) {
+        //     alert("Please switch to the Polygon Mainnet");
+        //     return;
+        // }
+        if (network.chainId !== 8453) {
+            alert("Please switch to the Base Chain");
             return;
         }
 
