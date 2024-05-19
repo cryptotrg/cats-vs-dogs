@@ -14,20 +14,22 @@
     </style>
 </head>
 <body>
-<div class="container" style="max-width: 20em">
+<div class="container" style="max-width: 30em">
     <div class="row my-2">
         <div class="col text-center">
             Polygon network
             <h1>Cats vs Dogs</h1>
         </div>
     </div>
-    <div class=" wallet-not-connected">
+    <div class="wallet-not-connected">
         <div class="row my-2">
             <div class="col text-center">
                 <span id="catVotes" class="h1">0</span>
             </div>
             <div class="col text-center">
-                <span id="dogVotes" class="h1">0</span>
+                <span id="dogVotes" class="h1">
+                    0
+                </span>
             </div>
         </div>
         <div class="row my-2">
@@ -35,12 +37,14 @@
                 <button class="btn btn-primary w-100" id="voteCats">Cats</button>
             </div>
             <div class="col text-center">
-                <button class="btn btn-primary w-100" id="voteDogs">Dogs</button>
+                <button class="btn btn-primary w-100" id="voteDogs">
+                    Dogs
+                </button>
             </div>
         </div>
-        <div class="row my-2">
-            <div class="col text-center text-muted">
-                Last Voter: <span id="lastVoter">...</span>
+        <div class="row mt-3">
+            <div class="col text-center text-nowrap text-muted text-small">
+                Last voter: <span id="lastVoter" >...</span>
             </div>
         </div>
     </div>
@@ -144,8 +148,6 @@
     ];
 
     async function updateUI(contract) {
-        if (!window.ethereum) return;
-
         console.log("updating UI");
 
         const catVotes = await contract.catVotes();
@@ -164,8 +166,16 @@
 
     document.getElementById('connect').addEventListener('click', async () => {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const signer = provider.getSigner();
-        const contract = new ethers.Contract(contractAddress, contractABI, signer);
+        const contract = new ethers.Contract(contractAddress, contractABI, provider.getSigner());
+        const network = await provider.getNetwork();
+        console.log("network:", network);
+        if (network.chainId !== 137) {
+            alert("Please switch to the Polygon Mainnet");
+            return;
+        }
+
+        await provider.send('eth_requestAccounts', []);
+        await updateUI(contract);
 
         for (let el of document.getElementsByClassName('wallet-not-connected')) {
             el.classList.remove('wallet-not-connected');
@@ -177,20 +187,19 @@
 
         document.getElementById('voteCats').addEventListener('click', async () => {
             const tx = await contract.voteForCat();
+            document.getElementById('catVotes').innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
             console.log("vote cats tx:", tx);
             await tx.wait();
-            await updateUI();
+            await updateUI(contract);
         });
 
         document.getElementById('voteDogs').addEventListener('click', async () => {
             const tx = await contract.voteForDog();
+            document.getElementById('dogVotes').innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
             console.log("vote dogs tx:", tx);
             await tx.wait();
-            await updateUI();
+            await updateUI(contract);
         });
-
-        await provider.send('eth_requestAccounts', []);
-        updateUI(contract);
     });
 </script>
 </body>

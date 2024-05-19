@@ -1,4 +1,3 @@
-// scripts/deploy.js
 async function main() {
     const [deployer] = await ethers.getSigners();
 

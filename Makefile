@@ -4,3 +4,6 @@ install:
 
 deploy-polygon:
 	npx hardhat run scripts/deploy.js --network polygon
+
+check-polygon:
+	npx hardhat run scripts/check.js --network polygon
