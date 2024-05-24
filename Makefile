@@ -10,3 +10,6 @@ deploy-base:
 
 check-polygon:
 	npx hardhat run scripts/check.js --network polygon
+
+runserver:
+	cd app && yarn serve

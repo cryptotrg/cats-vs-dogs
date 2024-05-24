@@ -2,3 +2,4 @@ artifacts
 hardhat.config.js
 .idea
 cache
+node_modules
