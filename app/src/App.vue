@@ -9,10 +9,16 @@
     <div v-if="isWalletConnected">
       <div class="row my-2">
         <div class="col text-center">
-          <span class="h1">{{ catVotes }}</span>
+          <span class="h1">
+            <span v-if="loadingCatVotes" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <span v-else>{{ catVotes }}</span>
+          </span>
         </div>
         <div class="col text-center">
-          <span class="h1">{{ dogVotes }}</span>
+          <span class="h1">
+            <span v-if="loadingDogVotes" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <span v-else>{{ dogVotes }}</span>
+          </span>
         </div>
       </div>
       <div class="row my-2">
@@ -46,9 +52,9 @@ export default {
       dogVotes: 0,
       lastVoter: '...',
       isWalletConnected: false,
-      // provider: null,
-      // signer: null,
       votingContract: null,
+      loadingCatVotes: false,
+      loadingDogVotes: false,
       contractAddress: '0x4bd4D3D980BeDF77cB91B23D26202c49E2b413B7'
     };
   },
@@ -77,18 +83,34 @@ export default {
       console.log('Wallet connected successfully.');
     },
     async voteForCats() {
-      if (this.isWalletConnected && this.votingContract) {
-        const tx = await this.votingContract.voteForCat();
-        await tx.wait();
-        await this.updateVotes();
+      if (!this.isWalletConnected || !this.votingContract) {
+        return;
       }
+      this.loadingCatVotes = true;
+      this.votingContract.voteForCat()
+        .then(tx => tx.wait())
+        .then(() => this.updateVotes())
+        .catch(error => {
+            console.error('Error voting for cats:', error);
+        }).
+        finally(() => {
+          this.loadingCatVotes = false;
+        });
     },
     async voteForDogs() {
-      if (this.isWalletConnected && this.votingContract) {
-        const tx = await this.votingContract.voteForDog();
-        await tx.wait();
-        await this.updateVotes();
+      if (!this.isWalletConnected || !this.votingContract) {
+        return;
       }
+      this.loadingDogVotes = true;
+      this.votingContract.voteForDog()
+        .then(tx => tx.wait())
+        .then(() => this.updateVotes())
+        .catch(error => {
+            console.error('Error voting for dogs:', error);
+        }).
+        finally(() => {
+          this.loadingDogVotes = false;
+        });
     },
     async updateVotes() {
       this.catVotes = await this.votingContract.catVotes();
