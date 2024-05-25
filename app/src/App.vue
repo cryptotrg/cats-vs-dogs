@@ -80,6 +80,18 @@ export default {
           contractAddress: '0x4bd4D3D980BeDF77cB91B23D26202c49E2b413B7',
           scanUrl: 'https://basescan.org/address/0x4bd4D3D980BeDF77cB91B23D26202c49E2b413B7',
         },
+        'Zora': {
+          chainId: '0x76ADF1',
+          chainName: 'Ethereum',
+          rpcUrls: ['https://rpc.zora.energy'],
+          nativeCurrency: {
+            name: 'ETH',
+            symbol: 'ETH',
+            decimals: 18,
+          },
+          contractAddress: '0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC',
+          scanUrl: 'https://zora.superscan.network/address/0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC',
+        }
       },
       catVotes: 0,
       dogVotes: 0,

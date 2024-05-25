@@ -4,14 +4,17 @@ install:
 	yarn add @coreui/vue
 	cd app && yarn install
 
+runserver:
+	cd app && yarn serve
+
 deploy-polygon:
 	npx hardhat run scripts/deploy.js --network polygon
 
 deploy-base:
 	npx hardhat run scripts/deploy.js --network base
 
+deploy-zora:
+	npx hardhat run scripts/deploy.js --network zora
+
 check-polygon:
 	npx hardhat run scripts/check.js --network polygon
-
-runserver:
-	cd app && yarn serve
