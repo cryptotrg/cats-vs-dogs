@@ -91,7 +91,19 @@ export default {
           },
           contractAddress: '0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC',
           scanUrl: 'https://zora.superscan.network/address/0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC',
-        }
+        },
+        'XLayer': {
+          chainId: '0xC4',
+          chainName: 'XLayer',
+          rpcUrls: ['https://rpc.xlayer.com'],
+          nativeCurrency: {
+            name: 'OKB',
+            symbol: 'OKB',
+            decimals: 18,
+          },
+          contractAddress: '0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC',
+          scanUrl: 'https://www.oklink.com/xlayer/address/0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC',
+        },
       },
       catVotes: 0,
       dogVotes: 0,

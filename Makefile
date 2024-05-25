@@ -16,5 +16,8 @@ deploy-base:
 deploy-zora:
 	npx hardhat run scripts/deploy.js --network zora
 
+deploy-xlayer:
+	npx hardhat run scripts/deploy.js --network xlayer
+
 check-polygon:
 	npx hardhat run scripts/check.js --network polygon
