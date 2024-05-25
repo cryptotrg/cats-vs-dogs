@@ -127,7 +127,19 @@ export default {
           },
           contractAddress: '0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC',
           scanUrl: 'https://scrollscan.com/address/0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC',
-        }
+        },
+        'Mode': {
+          chainId: '0x868B',
+          chainName: 'Mode',
+          rpcUrls: ['https://rpc.mode.io'],
+          nativeCurrency: {
+            name: 'ETH',
+            symbol: 'ETH',
+            decimals: 18,
+          },
+          contractAddress: '0x7f8d6DF386CcDE201C4Bd2479540c8903ed763De',
+          scanUrl: 'https://explorer.mode.network/address/0x7f8d6DF386CcDE201C4Bd2479540c8903ed763De',
+        },
       },
       catVotes: 0,
       dogVotes: 0,

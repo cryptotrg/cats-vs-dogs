@@ -25,5 +25,8 @@ deploy-zkevm:
 deploy-scroll:
 	npx hardhat run scripts/deploy.js --network scroll
 
+deploy-mode:
+	npx hardhat run scripts/deploy.js --network mode
+
 check-polygon:
 	npx hardhat run scripts/check.js --network polygon
