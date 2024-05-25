@@ -7,6 +7,9 @@ install:
 runserver:
 	cd app && yarn serve
 
+build:
+	cd app && yarn build
+
 deploy-polygon:
 	npx hardhat run scripts/deploy.js --network polygon
 
