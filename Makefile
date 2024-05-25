@@ -19,5 +19,11 @@ deploy-zora:
 deploy-xlayer:
 	npx hardhat run scripts/deploy.js --network xlayer
 
+deploy-zkevm:
+	npx hardhat run scripts/deploy.js --network zkevm
+
+deploy-scroll:
+	npx hardhat run scripts/deploy.js --network scroll
+
 check-polygon:
 	npx hardhat run scripts/check.js --network polygon

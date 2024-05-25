@@ -104,6 +104,30 @@ export default {
           contractAddress: '0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC',
           scanUrl: 'https://www.oklink.com/xlayer/address/0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC',
         },
+        'zkEVM': {
+          chainId: '0x44D',
+          chainName: 'zkEVM',
+          rpcUrls: ['https://rpc.zkevm.com'],
+          nativeCurrency: {
+            name: 'ETH',
+            symbol: 'ETH',
+            decimals: 18,
+          },
+          contractAddress: '0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC',
+          scanUrl: 'https://zkscan.com/address/0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC',
+        },
+        'Scroll': {
+          chainId: '0x82750',
+          chainName: 'Scroll',
+          rpcUrls: ['https://rpc.scroll.io'],
+          nativeCurrency: {
+            name: 'ETH',
+            symbol: 'ETH',
+            decimals: 18,
+          },
+          contractAddress: '0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC',
+          scanUrl: 'https://scrollscan.com/address/0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC',
+        }
       },
       catVotes: 0,
       dogVotes: 0,
@@ -156,7 +180,9 @@ export default {
               return this.updateVotes();
             })
             .catch(error => {
-              throw error;
+              alert('Failed to connect to ' + this.selectedNetworkName + ' network');
+              console.log('Error connecting wallet:', error);
+              // throw error;
               // if (error.code === 4001) {
               //   console.error('User rejected request');
               //   alert('User rejected request');
