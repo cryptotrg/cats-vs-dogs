@@ -1,0 +1,98 @@
+{
+  "Polygon": {
+    "chainId": "0x89",
+    "chainName": "Polygon",
+    "rpcUrls": ["https://polygon-rpc.com"],
+    "nativeCurrency": {
+      "name": "MATIC",
+      "symbol": "MATIC",
+      "decimals": 18
+    },
+    "contractAddress": "0x8F8FC628c371B96B8c934A7fb65eEC6a75295e34",
+    "scanUrl": "https://polygonscan.com/address/0x8F8FC628c371B96B8c934A7fb65eEC6a75295e34"
+  },
+  "Base": {
+    "chainId": "0x2105",
+    "chainName": "Base",
+    "rpcUrls": ["https://base-rpc-url.com"],
+    "nativeCurrency": {
+      "name": "ETH",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "contractAddress": "0x4bd4D3D980BeDF77cB91B23D26202c49E2b413B7",
+    "scanUrl": "https://basescan.org/address/0x4bd4D3D980BeDF77cB91B23D26202c49E2b413B7"
+  },
+  "Zora": {
+    "chainId": "0x76ADF1",
+    "chainName": "Ethereum",
+    "rpcUrls": ["https://rpc.zora.energy"],
+    "nativeCurrency": {
+      "name": "ETH",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "contractAddress": "0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC",
+    "scanUrl": "https://zora.superscan.network/address/0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC"
+  },
+  "XLayer": {
+    "chainId": "0xC4",
+    "chainName": "XLayer",
+    "rpcUrls": ["https://rpc.xlayer.com"],
+    "nativeCurrency": {
+      "name": "OKB",
+      "symbol": "OKB",
+      "decimals": 18
+    },
+    "contractAddress": "0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC",
+    "scanUrl": "https://www.oklink.com/xlayer/address/0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC"
+  },
+  "zkEVM": {
+    "chainId": "0x44D",
+    "chainName": "zkEVM",
+    "rpcUrls": ["https://rpc.zkevm.com"],
+    "nativeCurrency": {
+      "name": "ETH",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "contractAddress": "0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC",
+    "scanUrl": "https://zkscan.com/address/0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC"
+  },
+  "Scroll": {
+    "chainId": "0x82750",
+    "chainName": "Scroll",
+    "rpcUrls": ["https://rpc.scroll.io"],
+    "nativeCurrency": {
+      "name": "ETH",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "contractAddress": "0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC",
+    "scanUrl": "https://scrollscan.com/address/0x3ac3336B284431284eb4D98Ce2b3de4B89303DaC"
+  },
+  "Mode": {
+    "chainId": "0x868B",
+    "chainName": "Mode",
+    "rpcUrls": ["https://rpc.mode.io"],
+    "nativeCurrency": {
+      "name": "ETH",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "contractAddress": "0x7f8d6DF386CcDE201C4Bd2479540c8903ed763De",
+    "scanUrl": "https://explorer.mode.network/address/0x7f8d6DF386CcDE201C4Bd2479540c8903ed763De"
+  },
+  "Linea": {
+    "chainId": "0xe708",
+    "chainName": "Linea",
+    "rpcUrls": ["https://linea.decubate.com"],
+    "nativeCurrency": {
+      "name": "ETH",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "contractAddress": "0xEd65d74DcE866c2062E2ec1c1Bc96a37792A1989",
+    "scanUrl": "https://lineascan.com/address/0xEd65d74DcE866c2062E2ec1c1Bc96a37792A1989"
+  }
+}

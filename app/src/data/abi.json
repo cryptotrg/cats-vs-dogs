@@ -1,4 +1,4 @@
-const VotingContractABI = [
+[
     {
         "inputs": [],
         "stateMutability": "nonpayable",
@@ -82,6 +82,4 @@ const VotingContractABI = [
         "stateMutability": "nonpayable",
         "type": "function"
     }
-];
-
-export default VotingContractABI;
+]

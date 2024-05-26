@@ -4,7 +4,7 @@ install:
 	yarn add @coreui/vue
 	cd app && yarn install
 
-runserver:
+serve:
 	cd app && yarn serve
 
 build:
