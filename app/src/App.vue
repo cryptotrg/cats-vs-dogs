@@ -48,6 +48,7 @@
 
 <script>
 import {ethers} from 'ethers';
+
 import abi from './data/abi.json';
 import networksData from './data/networks.json';
 

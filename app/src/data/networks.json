@@ -14,7 +14,7 @@
   "Base": {
     "chainId": "0x2105",
     "chainName": "Base",
-    "rpcUrls": ["https://base-rpc-url.com"],
+    "rpcUrls": ["https://mainnet.base.org"],
     "nativeCurrency": {
       "name": "ETH",
       "symbol": "ETH",
@@ -38,7 +38,7 @@
   "XLayer": {
     "chainId": "0xC4",
     "chainName": "XLayer",
-    "rpcUrls": ["https://rpc.xlayer.com"],
+    "rpcUrls": ["https://rpc.xlayer.tech"],
     "nativeCurrency": {
       "name": "OKB",
       "symbol": "OKB",
@@ -50,7 +50,7 @@
   "zkEVM": {
     "chainId": "0x44D",
     "chainName": "zkEVM",
-    "rpcUrls": ["https://rpc.zkevm.com"],
+    "rpcUrls": ["https://zkevm-rpc.com"],
     "nativeCurrency": {
       "name": "ETH",
       "symbol": "ETH",
@@ -74,7 +74,7 @@
   "Mode": {
     "chainId": "0x868B",
     "chainName": "Mode",
-    "rpcUrls": ["https://rpc.mode.io"],
+    "rpcUrls": ["https://mode.drpc.org"],
     "nativeCurrency": {
       "name": "ETH",
       "symbol": "ETH",

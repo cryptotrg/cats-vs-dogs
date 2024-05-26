@@ -1,0 +1,7 @@
+{
+  "deployer": "Key",
+  "accounts": [
+    "Key1",
+    "Key2"
+  ]
+}

@@ -1,5 +1,5 @@
 artifacts
-hardhat.config.js
+#hardhat.config.js
 .idea
 
 cache
@@ -7,6 +7,7 @@ node_modules
 
 .DS_Store
 #/dist
+wallets.json5
 
 # local env files
 .env.local

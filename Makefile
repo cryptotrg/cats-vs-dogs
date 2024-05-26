@@ -1,6 +1,8 @@
-install:
+install-hardhat:
 	npm install --save-dev hardhat
-	npm install --save-dev @nomiclabs/hardhat-ethers ethers
+	npm install --save-dev @nomiclabs/hardhat-ethers ethers json5
+
+install-app:
 	yarn add @coreui/vue
 	cd app && yarn install
 
@@ -33,3 +35,9 @@ deploy-mode:
 
 deploy-linea:
 	npx hardhat run scripts/deploy.js --network linea
+
+#check:
+#	npx hardhat run scripts/check.js --network polygon
+
+vote:
+	npx hardhat run scripts/vote.js
