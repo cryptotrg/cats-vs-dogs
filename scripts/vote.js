@@ -9,9 +9,12 @@ async function main() {
     const { accounts } = JSON5.parse(fs.readFileSync('./wallets.json5', 'utf8'));
 
     for (const account of accounts) {
-        const wallet = new hre.ethers.Wallet(account, hre.ethers.provider);
+        const wallet = new hre.ethers.Wallet(account.key, hre.ethers.provider);
         for (const [networkName, networkInfo] of Object.entries(networksData)) {
-            console.log(`Vote on "${networkName}"`);
+            if (networkName === 'Polygon') {
+                continue;
+            }
+            console.log(`Voting on "${networkName}" by "${account.name}" with address ${wallet.address}`);
             try {
                 await hre.network.provider.request({
                     method: "hardhat_impersonateAccount",
@@ -22,20 +25,20 @@ async function main() {
                 const signer = wallet.connect(provider);
                 const contract = new hre.ethers.Contract(networkInfo.contractAddress, abi, signer);
 
+                const voteFor = Math.random() < 0.5 ? 'voteForCat' : 'voteForDog';
+
+                console.log(`...for ${voteFor === 'voteForCat' ? 'cats' : 'dogs'}`);
+                const tx = await contract[voteFor]();
+                await tx.wait();
+
+                console.log(`...successful in ${networkName} with tx: ${tx.hash}`);
+
                 const catVotes = await contract.catVotes();
-                console.log("catVotes:", catVotes.toString());
+                console.log("...catVotes:", catVotes.toString());
 
                 const dogVotes = await contract.dogVotes();
-                console.log("dogVotes:", dogVotes.toString());
+                console.log("...dogVotes:", dogVotes.toString());
 
-                // const voteFor = Math.random() < 0.5 ? 'voteForCat' : 'voteForDog';
-                //
-                // console.log(`Voting on ${networkName} as ${wallet.address} for ${voteFor === 'voteForCat' ? 'cats' : 'dogs'}`);
-                // const tx = await voteContract[voteFor]();
-                // await tx.wait();
-                //
-                // console.log(`Vote successful in ${networkName} with tx: ${tx.hash}`);
-                //
                 await new Promise(resolve => setTimeout(resolve, 3000));
             } catch (error) {
                 console.error(`Failed to vote in ${networkName} as ${wallet.address}:`, error.message);
