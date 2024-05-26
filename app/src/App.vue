@@ -140,6 +140,18 @@ export default {
           contractAddress: '0x7f8d6DF386CcDE201C4Bd2479540c8903ed763De',
           scanUrl: 'https://explorer.mode.network/address/0x7f8d6DF386CcDE201C4Bd2479540c8903ed763De',
         },
+        'Linea': {
+          chainId: '0xe708',
+          chainName: 'Linea',
+          rpcUrls: ['https://linea.decubate.com'],
+          nativeCurrency: {
+            name: 'ETH',
+            symbol: 'ETH',
+            decimals: 18,
+          },
+          contractAddress: '0xEd65d74DcE866c2062E2ec1c1Bc96a37792A1989',
+          scanUrl: 'https://lineascan.com/address/0xEd65d74DcE866c2062E2ec1c1Bc96a37792A1989',
+        }
       },
       catVotes: 0,
       dogVotes: 0,

@@ -31,5 +31,5 @@ deploy-scroll:
 deploy-mode:
 	npx hardhat run scripts/deploy.js --network mode
 
-check-polygon:
-	npx hardhat run scripts/check.js --network polygon
+deploy-linea:
+	npx hardhat run scripts/deploy.js --network linea
