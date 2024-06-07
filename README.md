@@ -1,8 +1,13 @@
-# cats-vs-dogs
+# Cats vs Dogs
 
-Simple smart contract: https://cryptotrg.github.io/cats-vs-dogs/
+## Description
 
-Auto mode:
+Simple smart contract: [Cats vs Dogs](https://cryptotrg.github.io/cats-vs-dogs/)
 
-1. copy `wallets.json5.example` to `wallets.json5` and change "Accounts" sections
-2. run `make vote`
+## Auto Mode
+
+1. Copy `wallets.json5.example` to `wallets.json5` and change the "Accounts" sections.
+2. Run the following command:
+   ```bash
+   make vote
+   ```
