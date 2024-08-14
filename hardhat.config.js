@@ -39,5 +39,9 @@ module.exports = {
             url: "https://linea.decubate.com",
             accounts: [deployer]
         },
+        arbitrum: {
+            url: "https://arb1.arbitrum.io/rpc",
+            accounts: [deployer]
+        },
     }
 };

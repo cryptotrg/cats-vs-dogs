@@ -94,5 +94,17 @@
     },
     "contractAddress": "0xEd65d74DcE866c2062E2ec1c1Bc96a37792A1989",
     "scanUrl": "https://lineascan.com/address/0xEd65d74DcE866c2062E2ec1c1Bc96a37792A1989"
+  },
+  "Arbitrum": {
+    "chainId": "0xa4b1",
+    "chainName": "Arbitrum",
+    "rpcUrls": ["https://arbitrum-rpc.com"],
+    "nativeCurrency": {
+      "name": "ETH",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "contractAddress": "0x273799f5B651a397733792C08f150505450b838D",
+    "scanUrl": "https://arbiscan.io//address/0x273799f5B651a397733792C08f150505450b838D"
   }
 }

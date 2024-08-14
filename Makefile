@@ -36,6 +36,9 @@ deploy-mode:
 deploy-linea:
 	npx hardhat run scripts/deploy.js --network linea
 
+deploy-arbitrum:
+	npx hardhat run scripts/deploy.js --network arbitrum
+
 #check:
 #	npx hardhat run scripts/check.js --network polygon
 

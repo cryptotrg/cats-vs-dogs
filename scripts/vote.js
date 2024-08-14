@@ -11,7 +11,7 @@ async function main() {
     for (const account of accounts) {
         const wallet = new hre.ethers.Wallet(account.key, hre.ethers.provider);
         for (const [networkName, networkInfo] of Object.entries(networksData)) {
-            if (networkName === 'Polygon') {
+            if (networkName === 'Polygon' || networkName === 'Linea') {
                 continue;
             }
             console.log(`Voting on "${networkName}" by "${account.name}" with address ${wallet.address}`);
