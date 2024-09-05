@@ -7,11 +7,12 @@ async function main() {
     const abi = JSON.parse(fs.readFileSync('app/src/data/abi.json', 'utf8'));
 
     const { accounts } = JSON5.parse(fs.readFileSync('./wallets.json5', 'utf8'));
+    const networksToVote = process.env.NETWORKS ? process.env.NETWORKS.split(' ') : [];
 
     for (const account of accounts) {
         const wallet = new hre.ethers.Wallet(account.key, hre.ethers.provider);
         for (const [networkName, networkInfo] of Object.entries(networksData)) {
-            if (networkName === 'Polygon' || networkName === 'Linea') {
+            if (!networksToVote.includes(networkName)) {
                 continue;
             }
             console.log(`Voting on "${networkName}" by "${account.name}" with address ${wallet.address}`);
