@@ -98,7 +98,7 @@
   "Arbitrum": {
     "chainId": "0xa4b1",
     "chainName": "Arbitrum",
-    "rpcUrls": ["https://arbitrum-rpc.com"],
+    "rpcUrls": ["https://arb1.arbitrum.io/rpc"],
     "nativeCurrency": {
       "name": "ETH",
       "symbol": "ETH",

@@ -43,4 +43,4 @@ deploy-arbitrum:
 #	npx hardhat run scripts/check.js --network polygon
 
 vote:
-	NETWORKS="Base Zora Scroll Arbitrum" npx hardhat run scripts/vote.js
+	NETWORKS="Scroll Arbitrum" npx hardhat run scripts/vote.js
